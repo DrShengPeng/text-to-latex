@@ -1,0 +1,54 @@
+! not working! change fragments of text by itself to headings
+!\L<T><-Y>\N=\\section\{$1$2\}
+! change double quotes
+"#"=``#''
+! change single quotes. causing too much problem with apostrophes
+!'#'=`#'
+\$=\\\$
+&=\\&
+%=\\%
+\{=\\\{
+\}=\\\}
+\#=\\\#
+_=\\_
+! make paragraphs
+\n=\n\n
+! not working. captions and other fake paragraphs
+!\L\N<U>/[a-zA-Z)]/\n=
+! NYT
+\L\nContinue reading the main story*\n=\n\n
+\L\n*COMMENTS*\N=\n\n
+\L*GETTY IMAGES*\N=\n\n
+\L*RELATED COVERAGE*\N=\n\n
+\L*\d\N=\n\n
+! paragraph ends with a year
+\L\n*<D4>\N=\n\n
+\L\nNYT*News*\N=\n\n
+! not working
+! \LFollow On=\n\n
+\L\nPhoto\N=\n\n
+! note number in bracket
+\[<D>\]=
+! bloomberg
+\L*Photographer\:*\N=\n\n
+\LRead More*\N=\n\n
+! Vox
+\n\SFollow*likes\n=\n\n
+\L*The New York Times\n=\n\n
+! WSJ
+! sometimes these paragraphs are back to back
+! \N solves some problems caused by that
+\L*ENLARGE\N=\n\n
+\LPHOTO\:*\N=\n\n
+\LCREDIT\:*\N=\n\n
+! \C not working?
+! \L\CPhoto\:*=\n\n
+\L*ILLUSTRATION*=\n\n
+! \L<K>=
+\LSEE\:*\N=\n\n
+! seems to create more trouble than benefits
+\L\n/[- ,\:'"‘’“”a-zA-Z]+/\n=\n\\subsection\*\{$1\}\n
+! image file
+\L*.jpg=\n\n
+! cause some output to fail
+!\L\n<-Y3><-y>\n=\n\\subsection\*\{$1$2\}\n
